@@ -1,0 +1,39 @@
+{
+  "customer_name": "Sarah Jones",
+  "customer_email": "sarah@example.com",
+  "customer_phone": null,
+  "site_address": "12 River Street, Bristol",
+  "job_title": "Kitchen tap replacement and sink reseal",
+  "job_summary": "Replace a leaking kitchen tap and reseal around the sink.",
+  "line_items": [
+    {
+      "description": "Labour for replacing kitchen tap",
+      "quantity": 2.0,
+      "unit": "hours",
+      "unit_price": null,
+      "line_total": null
+    },
+    {
+      "description": "Silicone sealant",
+      "quantity": null,
+      "unit": null,
+      "unit_price": null,
+      "line_total": null
+    }
+  ],
+  "subtotal": null,
+  "vat_rate": null,
+  "vat_amount": null,
+  "total": null,
+  "assumptions": [],
+  "exclusions": [],
+  "payment_terms": "Bank transfer on completion.",
+  "quote_valid_days": null,
+  "internal_notes": [
+    "Check tap cost before finalising quote."
+  ],
+  "confidence_flags": [
+    "No final price was stated.",
+    "Tap cost needs to be checked."
+  ]
+}
