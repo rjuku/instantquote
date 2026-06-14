@@ -15,11 +15,11 @@ InstantQuote uses environment variables for settings that may change between mac
 
 ## Transcription
 
-The transcription service opens the audio file in binary mode and sends it to the OpenAI transcription endpoint. The CLI validates file type and size first so unsupported inputs fail before an API call.
+The transcription service opens each audio file in binary mode and sends it to the OpenAI transcription endpoint. The CLI validates file type and size first so unsupported inputs fail before an API call.
 
 ## Structured Extraction
 
-The quote extraction service sends the transcript to the OpenAI Responses API and asks for output matching the `QuoteDraft` Pydantic schema. The transcript is treated as untrusted job content, so any instructions inside it are not allowed to override extraction rules.
+The quote extraction service sends collected evidence to the OpenAI Responses API and asks for output matching the `QuoteDraft` Pydantic schema. Evidence can include audio transcripts, text notes, and image parts. All evidence is treated as untrusted job content, so any instructions inside it are not allowed to override extraction rules.
 
 ## Pydantic Validation
 
@@ -30,11 +30,14 @@ Pydantic v2 validates the model output before files are written. Unknown fields 
 - Missing `OPENAI_API_KEY`.
 - Missing `INSTANTQUOTE_TEXT_MODEL`.
 - Unsupported audio extension.
+- Unsupported text or image extension.
 - Audio file larger than 25 MB.
+- Text file larger than 1 MB.
+- Image file larger than 20 MB.
 - Empty transcript returned by the transcription endpoint.
 - Model output that does not satisfy the quote schema.
 - Network or API errors from OpenAI.
 
 ## Lessons Learned
 
-Keep external calls behind small service classes. Validate files before making network calls. Treat all voice transcript text as data, not instructions. Prefer explicit `null` values over invented prices or customer details.
+Keep external calls behind small service classes. Validate files before making network calls. Treat all user evidence as data, not instructions. Prefer explicit `null` values over invented prices or customer details. For the WhatsApp product, collect messages until the user writes `generate`; do not summarize too early when another voice note or photo may still be coming.

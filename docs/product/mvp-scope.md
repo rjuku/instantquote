@@ -2,10 +2,12 @@
 
 ## In Scope
 
-- CLI command that accepts a local audio file.
+- CLI command that accepts one or more local audio, text, and image files.
 - File existence, extension, and size validation.
-- OpenAI audio transcription.
-- Raw transcript saved to disk.
+- OpenAI audio transcription for each voice note.
+- Text note ingestion.
+- Image evidence passed to quote extraction.
+- Evidence audit saved to disk.
 - Quote extraction using schema-constrained OpenAI output.
 - Pydantic validation of the extracted quote draft.
 - JSON output for structured data.
@@ -18,10 +20,13 @@
 - Database.
 - Authentication.
 - Payments or Stripe.
+- WhatsApp bot implementation.
+- PDF generation engine.
 - AWS or other cloud deployment.
 - Queues or background jobs.
 - RAG or document retrieval.
 - Observability tools such as Langfuse or Sentry.
 - Customer management.
-- Quote sending or PDF generation.
+- Quote sending.
 - Price books or automatic pricing.
+- Browser-based quote draft review.
